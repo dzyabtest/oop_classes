@@ -1,10 +1,9 @@
 /* eslint-disable linebreak-style */
-import { Character } from './basic';
+import Character from './character';
 
 export default class Zombie extends Character {
   constructor(name) {
-    super(name);
-    this.type = 'zombie';
+    super(name, 'zombie');
     this.attack = 40;
     this.defense = 10;
   }

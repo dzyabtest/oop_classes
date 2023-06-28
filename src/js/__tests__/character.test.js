@@ -1,4 +1,4 @@
-import sum, { Character } from '../basic';
+import Character from '../character';
 import Bowman from '../bowman';
 import Daemon from '../daemon';
 import Magician from '../magician';
@@ -6,21 +6,15 @@ import Swordsman from '../swordsman';
 import Undead from '../undead';
 import Zombie from '../zombie';
 
-test('should sum', () => {
-  const result = sum([1, 2, 3]);
-
-  expect(result).toBe(6);
-});
-
 test('new character', () => {
-  const result = new Character('character');
+  const result = new Character('character', 'bowman');
   const testChar = {
     attack: 0,
     defense: 0,
     health: 100,
     level: 1,
     name: 'character',
-    type: null,
+    type: 'bowman',
   };
 
   expect(result).toEqual(testChar);
@@ -163,6 +157,11 @@ test('level up after damage', () => {
 test('wrong name', () => {
   // eslint-disable-next-line no-new
   expect(() => { new Bowman('c'); }).toThrow(Error('Имя должно быть длиной от 2 до 10 символов!'));
+});
+
+test('wrong type', () => {
+  // eslint-disable-next-line no-new
+  expect(() => { new Character('bowman', 'test'); }).toThrow(Error('Неправильный тип!'));
 });
 
 test('level up for dead', () => {

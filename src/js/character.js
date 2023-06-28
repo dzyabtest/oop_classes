@@ -1,20 +1,15 @@
-export default function sum(items) {
-  let result = 0;
-  for (const item of items) {
-    result += item;
-  }
-  return result;
-}
-
-export class Character {
-  constructor(name) {
+/* eslint-disable linebreak-style */
+export default class Character {
+  constructor(name, type) {
     if ((name.length < 2) || (name.length > 10)) {
       throw new Error('Имя должно быть длиной от 2 до 10 символов!');
+    } else if (['bowman', 'daemon', 'magician', 'swordsman', 'undead', 'zombie'].indexOf(type) === -1) {
+      throw new Error('Неправильный тип!');
     } else {
       this.name = name;
       this.level = 1;
       this.health = 100;
-      this.type = null;
+      this.type = type;
       this.attack = 0;
       this.defense = 0;
     }

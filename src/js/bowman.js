@@ -1,10 +1,9 @@
 /* eslint-disable linebreak-style */
-import { Character } from './basic';
+import Character from './character';
 
 export default class Bowman extends Character {
   constructor(name) {
-    super(name);
-    this.type = 'bowman';
+    super(name, 'bowman');
     this.attack = 25;
     this.defense = 25;
   }
